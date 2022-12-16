@@ -8,16 +8,15 @@ export default function WeatherWrap() {
   return (
     <div className="WeatherWrap">
       <div className="conteiner">
+        <SearchForm />
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-6">
             <h1>Lublin</h1>
+            <CurrentData />
           </div>
-
-          <div className="col-md-9">
-            <SearchForm />
+          <div className="col-md-6">
+            <Forecast />
           </div>
-          <CurrentData />
-          <Forecast />
         </div>
       </div>
     </div>

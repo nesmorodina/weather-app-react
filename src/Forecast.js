@@ -6,46 +6,34 @@ export default function Forecast() {
     <div className="Forecast">
       <div className="container">
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-4">
             <ul>
+              <li>Saturday</li>
               <li>Sunday</li>
-              <li>-3C...+3C</li>
-              <li>snow</li>
+              <li>Monday</li>
+              <li>Tuesday</li>
+              <li>Wednesday</li>
+              <li>Thursday</li>
             </ul>
           </div>
-          <div className="col-md-2">
+          <div className="col-4">
             <ul>
-              <li>Sunday</li>
-              <li>-3C...+3C</li>
-              <li>snow</li>
+              <li>-3C...+3C </li>
+              <li>-3C...+3C </li>
+              <li>-3C...+3C </li>
+              <li>-3C...+3C </li>
+              <li>-3C...+3C </li>
+              <li>-3C...+3C </li>
             </ul>
           </div>
-          <div className="col-md-2">
+          <div className="col-4">
             <ul>
-              <li>Sunday</li>
-              <li>-3C...+3C</li>
-              <li>snow</li>
-            </ul>
-          </div>
-          <div className="col-md-2">
-            <ul>
-              <li>Sunday</li>
-              <li>-3C...+3C</li>
-              <li>snow</li>
-            </ul>
-          </div>
-          <div className="col-md-2">
-            <ul>
-              <li>Sunday</li>
-              <li>-3C...+3C</li>
-              <li>snow</li>
-            </ul>
-          </div>
-          <div className="col-md-2">
-            <ul>
-              <li>Sunday</li>
-              <li>-3C...+3C</li>
-              <li>snow</li>
+              <li>snow </li>
+              <li>snow </li>
+              <li>snow </li>
+              <li>snow </li>
+              <li> snow</li>
+              <li>snow </li>
             </ul>
           </div>
         </div>

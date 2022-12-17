@@ -1,12 +1,11 @@
 import "./App.css";
-
 import WeatherWrap from "./WeatherWrap";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <WeatherWrap />
+        <WeatherWrap defaultCity="Lublin" />
         <footer>
           This project was coded by Olga Neskorodiana and is{" "}
           <a

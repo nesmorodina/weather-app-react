@@ -1,16 +1,27 @@
 import React from "react";
+import FormattedDate from "./FormattedDate";
 import "./CurrentData.css";
 
-export default function CurrentData() {
+export default function CurrentData(props) {
   return (
-    <div className="CurrentData">
-      <h5>Saturday 10 december</h5>
+    <div className="currentData">
+      <h1>{props.data.city}</h1>
+      <h2>
+        <FormattedDate date={props.data.date} />
+      </h2>
+      <h3 className="text-capitalize">{props.data.description}</h3>
+      <div className="overview">
+        <img src="" alt={props.data.description} className="float-left" />
+        <span className="temperature">
+          {Math.round(props.data.temperature)}
+        </span>
+        <span className="unit">°C</span>
+      </div>
 
-      <h5>12:45</h5>
-      <h5>Snowing</h5>
-      <h5>img</h5>
-      <h5>Humidity</h5>
-      <h5>Wind</h5>
+      <ul>
+        <li>{props.data.humidity}%</li>
+        <li>{Math.round(props.data.wind)}m/h</li>
+      </ul>
     </div>
   );
 }

@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./WeatherWrap.css";
+import CurrentData from "./CurrentData";
 
-export default function WeatherWrap() {
+export default function WeatherWrap(props) {
   const [ready, setReady] = useState(false);
+  const [city, setCity] = useState(props.defaultCity);
+
   const [weatherData, setWeatherData] = useState({});
   function handleResponse(response) {
     setWeatherData({
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
@@ -18,6 +22,21 @@ export default function WeatherWrap() {
     setReady(true);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function search() {
+    const apiKey = "854825cbb885ded52dd50cc86b8fc7e7";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
   if (ready) {
     return (
       <div className="WeatherWrap">
@@ -25,46 +44,20 @@ export default function WeatherWrap() {
           <div className="row">
             <div className="col-md-6">
               <div className="searchForm">
-                <form>
+                <form onSubmit={handleSubmit}>
                   <input
                     type="search"
                     placeholder="Search city..."
                     className="search"
                     autocomplete="off"
+                    onChange={handleCityChange}
                   />
                   <button type="button" className="btn btn-light">
                     Search
                   </button>
                 </form>
               </div>
-
-              <div className="currentData">
-                <h1>Lublin</h1>
-                <h2>
-                  <span className="date">date</span>{" "}
-                  <span className="time">
-                    {" "}
-                    <strong>15:00</strong>{" "}
-                  </span>
-                </h2>
-                <h3 className="text-capitalize">{weatherData.description}</h3>
-                <div className="overview">
-                  <img
-                    src=""
-                    alt={weatherData.description}
-                    className="float-left"
-                  />
-                  <span className="temperature">
-                    {Math.round(weatherData.temperature)}
-                  </span>
-                  <span className="unit">°C</span>
-                </div>
-
-                <ul>
-                  <li>{weatherData.humidity}%</li>
-                  <li>{Math.round(weatherData.wind)}m/h</li>
-                </ul>
-              </div>
+              <CurrentData data={weatherData} />
             </div>
             <div className="col-md-6"></div>
           </div>
@@ -72,11 +65,7 @@ export default function WeatherWrap() {
       </div>
     );
   } else {
-    const apiKey = "854825cbb885ded52dd50cc86b8fc7e7";
-    let city = "Lublin";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-
+    search();
     return "Loading...";
   }
 }

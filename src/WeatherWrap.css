@@ -21,6 +21,10 @@
   font-size: 40px;
 }
 
+.WeatherWrap canvas {
+  margin: 10px auto;
+}
+
 .WeatherWrap .currentData .temperature {
   font-weight: bold;
   font-size: 64px;
@@ -28,6 +32,7 @@
   margin-left: 5px;
   font-weight: 400;
   margin-left: 10px;
+  position: relative;
 }
 
 .WeatherWrap .currentData .unit {

@@ -5,13 +5,13 @@ import "./CurrentData.css";
 
 export default function CurrentData(props) {
   return (
-    <div className="currentData">
+    <div className="CurrentData">
       <h1>{props.data.city}</h1>
       <h2>
         <FormattedDate date={props.data.date} />
       </h2>
       <h3 className="text-capitalize">{props.data.description}</h3>
-      <div className="overview">
+      <div className="overview d-inline-flex">
         <WeatherIcon code={props.data.icon} />
         <span className="temperature">
           {Math.round(props.data.temperature)}

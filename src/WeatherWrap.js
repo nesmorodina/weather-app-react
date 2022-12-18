@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./WeatherWrap.css";
 import CurrentData from "./CurrentData";
+import Forecast from "./Forecast";
 
 export default function WeatherWrap(props) {
   const [ready, setReady] = useState(false);
@@ -49,7 +50,6 @@ export default function WeatherWrap(props) {
                     type="search"
                     placeholder="Search city..."
                     className="search"
-                    autocomplete="off"
                     onChange={handleCityChange}
                   />
                   <button type="button" className="btn btn-light">
@@ -59,7 +59,9 @@ export default function WeatherWrap(props) {
               </div>
               <CurrentData data={weatherData} />
             </div>
-            <div className="col-md-6"></div>
+            <div className="col-md-6">
+              <Forecast />
+            </div>
           </div>
         </div>
       </div>

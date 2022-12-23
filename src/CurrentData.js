@@ -1,12 +1,10 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import "./CurrentData.css";
 
 export default function CurrentData(props) {
-  const element = <FontAwesomeIcon icon={faCoffee} />;
   return (
     <div className="CurrentData">
       <h1>{props.data.city}</h1>

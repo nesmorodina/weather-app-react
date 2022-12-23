@@ -12,6 +12,7 @@ export default function WeatherWrap(props) {
   function handleResponse(response) {
     setWeatherData({
       temperature: response.data.main.temp,
+      coordinates: response.data.coord,
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
@@ -60,7 +61,7 @@ export default function WeatherWrap(props) {
               <CurrentData data={weatherData} />
             </div>
             <div className="col-md-6">
-              <Forecast />
+              <Forecast coordinates={weatherData.coordinates} />
             </div>
           </div>
         </div>

@@ -21,7 +21,7 @@ export default function CurrentData(props) {
       </div>
 
       <ul>
-        <li>{props.data.humidity}%</li>
+        <li> {props.data.humidity}%</li>
         <li>{Math.round(props.data.wind)}m/h</li>
       </ul>
     </div>

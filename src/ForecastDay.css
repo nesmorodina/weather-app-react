@@ -1,0 +1,17 @@
+.ForecastDay .unit-max {
+  font-size: 13px;
+  font-weight: 400;
+  position: relative;
+  line-height: 1;
+  top: -5px;
+  margin-left: -5px;
+}
+
+.ForecastDay .unit-min {
+  font-size: 13px;
+  font-weight: 400;
+  position: relative;
+  line-height: 1;
+  top: -5px;
+  margin-left: 1px;
+}
